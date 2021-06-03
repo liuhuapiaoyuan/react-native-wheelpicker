@@ -33,6 +33,8 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         //默认是蜷曲
         picker.setCurved(true);
         picker.setItemTextSize(DEFAULT_TEXT_SIZE);
+
+        //初始化的propes
         return picker;
     }
 
@@ -60,10 +62,8 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
 
     @ReactProp(name="selectedIndex")
     public void setSelectedIndex(ReactWheelCurvedPicker picker, int index) {
-        if (picker != null ) {
-            picker.setItemIndex(index);
-            picker.invalidate();
-        }
+        picker.setSelectedItemPosition(index,false);
+
     }
 
     @ReactProp(name="textColor", customType = "Color")

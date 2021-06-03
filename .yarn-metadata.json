@@ -83,9 +83,9 @@
   "remote": {
     "type": "copy",
     "registry": "npm",
-    "hash": "c46e97f2-87cd-484c-8eb7-80d944cfe82d-1622648882746",
-    "reference": "D:\\project\\suntree_ems_app\\app\\node_modules\\react-native-wheelpicker"
+    "hash": "4d395de8-a328-4c79-a9d5-0e0e91351b6c-1622692581571",
+    "reference": "D:\\project\\suntree_ems_app\\native-shell\\node_modules\\react-native-wheelpicker"
   },
   "registry": "npm",
-  "hash": "c46e97f2-87cd-484c-8eb7-80d944cfe82d-1622648882746"
+  "hash": "4d395de8-a328-4c79-a9d5-0e0e91351b6c-1622692581571"
 }
