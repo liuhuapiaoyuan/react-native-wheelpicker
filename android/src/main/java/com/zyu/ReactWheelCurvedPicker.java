@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 
 import com.aigestudio.wheelpicker.WheelPicker;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Dynamic;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.UIManagerModule;
@@ -25,7 +26,7 @@ import java.util.List;
 public class ReactWheelCurvedPicker extends WheelPicker {
 
     private final EventDispatcher mEventDispatcher;
-    private List<String> mValueData;
+    private List<Dynamic> mValueData;
 
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
@@ -36,7 +37,7 @@ public class ReactWheelCurvedPicker extends WheelPicker {
             public void onItemSelected(WheelPicker picker, Object data, int index) {
                 if (mValueData != null && index < mValueData.size()) {
                     mEventDispatcher.dispatchEvent(
-                            new ItemSelectedEvent(getId(), mValueData.get(index)));
+                            new ItemSelectedEvent(getId(),index));
                 }
             }
         });
@@ -46,7 +47,7 @@ public class ReactWheelCurvedPicker extends WheelPicker {
         super.setSelectedItemPosition(index , true);
     }
 
-    public void setValueData(List<String> data) {
+    public void setValueData(List<Dynamic> data) {
         mValueData = data;
     }
 
@@ -56,9 +57,9 @@ class ItemSelectedEvent extends Event<ItemSelectedEvent> {
 
     public static final String EVENT_NAME = "wheelCurvedPickerPageSelected";
 
-    private final String mValue;
+    private final Integer mValue;
 
-    protected ItemSelectedEvent(int viewTag,  String value) {
+    protected ItemSelectedEvent(int viewTag,  Integer value) {
         super(viewTag);
         mValue = value;
     }
@@ -75,7 +76,17 @@ class ItemSelectedEvent extends Event<ItemSelectedEvent> {
 
     private WritableMap serializeEventData() {
         WritableMap eventData = Arguments.createMap();
-        eventData.putString("data", mValue);
+        if(mValue!=null){
+            eventData.putInt("data",mValue);
+//
+//            if(mValue instanceof  String){
+//                eventData.putString("data",(String)mValue);
+//            }else if(mValue instanceof Double){
+//                eventData.putDouble("data",(Double)mValue);
+//            }else if(mValue instanceof Integer){
+//                eventData.putInt("data",(Integer)mValue);
+//            }
+        }
         return eventData;
     }
 }

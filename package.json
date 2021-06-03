@@ -1,12 +1,13 @@
 {
-  "name": "react-native-wheelpicker",
-  "version": "0.0.1",
+  "name": "@suntree/react-native-wheelpicker",
+  "version": "1.0.2",
   "description": "基于cn.aigestudio.wheelpicker:WheelPicker的滚动picker",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
+  "scope":"@suntree",
   "files": [
     "src",
     "lib",
@@ -20,7 +21,7 @@
   ],
   "scripts": {
     "prepare": "bob build",
-    "publish": "npm publish"
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "react-native",
